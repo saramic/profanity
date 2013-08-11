@@ -1,5 +1,7 @@
 Profanity quote generator
 
+see it running here http://profanity.herokuapp.com/
+
 directory needs to be served over a server
 eg
   python -m SimpleHTTPServer
