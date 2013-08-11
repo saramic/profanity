@@ -1,13 +1,21 @@
-var Period = angular.module('Profanity', []);
+var Period = angular.module('Profanity', []).
+    config(function($routeProvider) {
+        $routeProvider.
+          when('/:dictionary', {controller:QuoteCtrl, templateUrl:'quote.html'}).
+          otherwise({redirectTo:'/'});
+      });
 
-function MenuCtrl($scope) {
-    $scope.fetchQuote = function (args) {
-        return "the quote"
-    }
-};
+function MenuCtrl($scope, $location) {
+    $scope.items = [
+        {name: 'home', uri: '/', active: $location.url() == '/'},
+        {name: 'sex', uri: '/sex', active: $location.url() == '/sex'},
+        {name: 'terror', uri: '/terror', active: $location.url() == '/terror'},
+    ];
+}
 
-function QuoteCtrl($scope, $http) {
-    $http.get('sex.json').success(function(data){
+function QuoteCtrl($scope, $location, $routeParams, $http) {
+    var dictionary = $routeParams.dictionary == "terror" ? 'terror.json' : 'sex.json';
+    $http.get(dictionary).success(function(data){
         $scope.dictionary = data;
         $scope.generateQuote();
     });

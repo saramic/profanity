@@ -8,12 +8,16 @@
 <body>
 
 <div class="pure-g-r" ng-app="Profanity">
-    <div class="pure-u-1" ng-controller="QuoteCtrl">
-        <blockquote class="content-quote quote-text">
-            {{ quote }}
-        </blockquote>
-        <a ng-click="generateQuote()" class="pure-button pure-button-primary pull-right">Quote</a>
+    <div class="pure-u-1">
+        <div class="pure-menu pure-menu-open pure-menu-horizontal" ng-controller="MenuCtrl">
+            <ul>
+                <li  ng-class="{'pure-menu-selected': item.active}"  ng-repeat="item in items">
+                    <a href="#{{ item.uri }}">{{ item.name }}</a>
+                </li>
+            </ul>
+        </div>
     </div>
+    <div class="with-padding" ng-view></div>
 </div>
 
 <script src="angular.js"></script>
