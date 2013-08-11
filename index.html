@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="pure-min.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="pure-g-r" ng-app="Profanity">
+    <div class="pure-u-1" ng-controller="QuoteCtrl">
+        <blockquote class="content-quote quote-text">
+            {{ quote }}
+        </blockquote>
+        <a ng-click="generateQuote()" class="pure-button pure-button-primary pull-right">Quote</a>
+    </div>
+</div>
+
+<script src="angular.js"></script>
+<script src="profanity.js"></script>
+
+</body>
+</html>

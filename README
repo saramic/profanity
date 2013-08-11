@@ -1,0 +1,9 @@
+Profanity quote generator
+
+directory needs to be served over a server
+eg
+  python -m SimpleHTTPServer
+
+  defualt is port 8080 otherwise another port can be specified
+  python -m SimpleHTTPServer 8081
+
